@@ -35,9 +35,9 @@ public class Tasks {
 		
 		Arrays.sort(cars, priceAComparator);
 		
-		for (int x = 0; x < cars.length; x++)
+		for (int car = 0; car < cars.length; car++)
 		{
-			System.out.println((x+1) + ". " + cars[x].getName() + " - " + cars[x].getPrice());
+			System.out.println((car+1) + ". " + cars[car].getName() + " - " + cars[car].getPrice());
 		}
 	}
 	
@@ -46,10 +46,10 @@ public class Tasks {
 	{
 		//For each car, splits the sipp into letters and prints the corresponding specification
 		
-		for (int x = 0; x < cars.length; x++)
+		for (int car = 0; car < cars.length; car++)
 		{
-			String sipp = cars[x].getSipp();
-			System.out.println((x+1) + ". " + cars[x].getName() + " - " + sipp + " - " + sipp1.get(sipp.charAt(0)) + " - " + sipp2.get(sipp.charAt(1)) + " - " + sipp3.get(sipp.charAt(2)) + " - " + sipp4.get(sipp.charAt(3)));
+			String sipp = cars[car].getSipp();
+			System.out.println((car+1) + ". " + cars[car].getName() + " - " + sipp + " - " + sipp1.get(sipp.charAt(0)) + " - " + sipp2.get(sipp.charAt(1)) + " - " + sipp3.get(sipp.charAt(2)) + " - " + sipp4.get(sipp.charAt(3)));
 		}
 	}
 	
@@ -69,14 +69,14 @@ public class Tasks {
 		
 		char [] types = new char[]{'M', 'E', 'C', 'I', 'S', 'F', 'P', 'L', 'X'};
 		
-		for (int y = 0; y < types.length; y++)
+		for (int carType = 0; carType < types.length; carType++)
 		{
-			for (int x = 0; x < cars.length; x++)
+			for (int car = 0; car < cars.length; car++)
 			{
-				char type = cars[x].getSipp().charAt(0);
-				if (type == types[y])
+				char type = cars[car].getSipp().charAt(0);
+				if (type == types[carType])
 				{
-					System.out.println((y+1) + ". " + cars[x].getName() + " - " + sipp1.get(type) + " - " + cars[x].getSupplier() + " - " + cars[x].getRating());
+					System.out.println((carType+1) + ". " + cars[car].getName() + " - " + sipp1.get(type) + " - " + cars[car].getSupplier() + " - " + cars[car].getRating());
 					break;
 				}
 			}
