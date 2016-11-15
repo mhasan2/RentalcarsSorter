@@ -29,7 +29,7 @@ public class Tasks {
 
 			@Override
 			public int compare(car first, car second) {
-				return (int) (first.getPrice() - second.getPrice());
+				return Float.compare(first.getPrice(),second.getPrice());
 			}
 		};
 		
@@ -61,7 +61,7 @@ public class Tasks {
 
 			@Override
 			public int compare(car first, car second) {
-				return (int) (second.getRating() - first.getRating());
+				return Float.compare(second.getRating(),first.getRating());
 			}
 		};
 		
@@ -82,4 +82,47 @@ public class Tasks {
 			}
 		}
 	}
+	
+	
+	public static void listCombinedScore(car[] cars)
+	{
+		//First set vehicle score for each car. Then sort by combined score. Then list cars
+		Comparator<car> combinedRatingDComparator = new Comparator<car>(){
+
+			@Override
+			public int compare(car first, car second) {
+				return Float.compare((second.getRating() + second.getVehicleScore()), (first.getRating() + first.getVehicleScore()));
+			}
+		};
+		
+		for (int car = 0; car < cars.length; car++)
+		{
+			String sipp = cars[car].getSipp();
+			float vehicleScore = 0;
+			
+			if (sipp.charAt(2) == 'M')
+			{
+				vehicleScore = 1;
+			}
+			else if (sipp.charAt(2) == 'A')
+			{
+				vehicleScore = 5;
+			}
+			
+			if (sipp.charAt(3) == 'R')
+			{
+				vehicleScore += 2;
+			}
+			
+			cars[car].setVehicleScore(vehicleScore);
+		}
+		
+		Arrays.sort(cars, combinedRatingDComparator);
+		
+		for (int car = 0; car < cars.length; car++)
+		{
+			System.out.println((car+1) + ". " + cars[car].getName() + " - " + cars[car].getVehicleScore() + " - " + cars[car].getRating() + " - " + (cars[car].getVehicleScore() + cars[car].getRating()));
+		}
+	}
+	
 }

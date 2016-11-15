@@ -90,4 +90,15 @@ public class TasksTest {
 		
 		assertEquals("1. car A - Mini - Alamo - 6.0" + System.lineSeparator() + "2. car B - Economy - Europcar - 7.0" + System.lineSeparator(), outContent.toString());
 	}
+	
+	@Test
+	public void Should_List_Cars_By_Decreasing_Combined_Rating(){
+		car carA = new car("MBMR", "car A", 0, "", 6);
+		car carB = new car("MBMN", "car B", 0, "", 7);
+		car carC = new car("MBAR", "car C", 0, "", 3);
+		
+		Tasks.listCombinedScore(new car[]{carA, carB, carC});
+		
+		assertEquals("1. car C - 7.0 - 3.0 - 10.0" + System.lineSeparator() + "2. car A - 3.0 - 6.0 - 9.0" + System.lineSeparator() + "3. car B - 1.0 - 7.0 - 8.0" + System.lineSeparator(), outContent.toString());
+	}
 }

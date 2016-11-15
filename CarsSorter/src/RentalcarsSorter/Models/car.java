@@ -7,6 +7,7 @@ public class car {
 	private float price;
 	private String supplier;
 	private float rating;
+	private float vehicleScore;
 	
 	public car(String _sipp, String _name, float _price, String _supplier, float _rating)
 	{
@@ -40,6 +41,14 @@ public class car {
 	
 	public float getRating(){
 		return rating;
+	}
+	
+	public float getVehicleScore(){
+		return vehicleScore;
+	}
+	
+	public void setVehicleScore(float _vehicleScore){
+		vehicleScore = _vehicleScore;
 	}
 	
 }
