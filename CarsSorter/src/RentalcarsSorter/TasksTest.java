@@ -60,7 +60,6 @@ public class TasksTest {
 	}
 
 	
-	@Ignore
 	@Test
 	public void listCarsTest() {
 		car carA = new car("", "car A", 10, "", 0);
