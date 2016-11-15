@@ -9,7 +9,6 @@ import java.util.Map;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import RentalcarsSorter.Models.car;
@@ -61,7 +60,7 @@ public class TasksTest {
 
 	
 	@Test
-	public void listCarsTest() {
+	public void Should_List_Cars_By_Increasing_Price() {
 		car carA = new car("", "car A", 10, "", 0);
 		car carB = new car("", "car B", 5, "", 0);
 		car carC = new car("", "car C", 20, "", 0);
@@ -72,7 +71,7 @@ public class TasksTest {
 	}
 	
 	@Test
-	public void listSpecificationsTest(){
+	public void Should_List_Correct_Specification_For_Each_Car(){
 		car carA = new car("MBMN", "car A", 0, "", 0);
 		car carB = new car("CTAR", "car B", 0, "", 0);
 		
@@ -81,4 +80,14 @@ public class TasksTest {
 		assertEquals("1. car A - MBMN - Mini - 2 doors - Manual - Petrol/no AC" + System.lineSeparator() + "2. car B - CTAR - Compact - Convertible - Automatic - Petrol/AC" + System.lineSeparator(), outContent.toString());
 	}
 
+	@Test
+	public void Should_Print_Highest_Rated_Supplier_Per_Car_Type(){
+		car carA = new car("MBMN", "car A", 0, "Alamo", 6);
+		car carB = new car("EBMN", "car B", 0, "Europcar", 7);
+		car carC = new car("EBMN", "car C", 0, "Alamo", 6);
+		
+		Tasks.bestSupplierPerType(new car[]{carA, carB, carC});
+		
+		assertEquals("1. car A - Mini - Alamo - 6.0" + System.lineSeparator() + "2. car B - Economy - Europcar - 7.0" + System.lineSeparator(), outContent.toString());
+	}
 }

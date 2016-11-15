@@ -44,6 +44,7 @@ public class Main {
 		
 		Tasks.listCars(searchResult);
 		Tasks.listSpecifications(searchResult);
+		Tasks.bestSupplierPerType(searchResult);
 		
 	}
 

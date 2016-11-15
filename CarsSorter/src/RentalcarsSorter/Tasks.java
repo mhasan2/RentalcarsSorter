@@ -53,4 +53,33 @@ public class Tasks {
 		}
 	}
 	
+	
+	public static void bestSupplierPerType(car[] cars)
+	{
+		//First sort cars by rating. Then for each type of car, loop through the array until a car is found
+		Comparator<car> ratingDComparator = new Comparator<car>(){
+
+			@Override
+			public int compare(car first, car second) {
+				return (int) (second.getRating() - first.getRating());
+			}
+		};
+		
+		Arrays.sort(cars, ratingDComparator);
+		
+		char [] types = new char[]{'M', 'E', 'C', 'I', 'S', 'F', 'P', 'L', 'X'};
+		
+		for (int y = 0; y < types.length; y++)
+		{
+			for (int x = 0; x < cars.length; x++)
+			{
+				char type = cars[x].getSipp().charAt(0);
+				if (type == types[y])
+				{
+					System.out.println((y+1) + ". " + cars[x].getName() + " - " + sipp1.get(type) + " - " + cars[x].getSupplier() + " - " + cars[x].getRating());
+					break;
+				}
+			}
+		}
+	}
 }
