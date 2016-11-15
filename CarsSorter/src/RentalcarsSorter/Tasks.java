@@ -2,16 +2,29 @@ package RentalcarsSorter;
 
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Map;
 
 import RentalcarsSorter.Models.car;
 
 public class Tasks {
 
+	private static Map sipp1;
+	private static Map sipp2;
+	private static Map sipp3;
+	private static Map sipp4;
+	
+	public static void initialiseSpecifications(Map _sipp1, Map _sipp2, Map _sipp3, Map _sipp4)
+	{
+		sipp1 = _sipp1;
+		sipp2 = _sipp2;
+		sipp3 = _sipp3;
+		sipp4 = _sipp4;
+	}
+	
+	
 	public static void listCars (car[] cars)
 	{
-		
+		//Sorts the array of cars in ascending order by price and prints them
 		Comparator<car> priceAComparator = new Comparator<car>(){
 
 			@Override
@@ -28,42 +41,16 @@ public class Tasks {
 		}
 	}
 	
+	
 	public static void listSpecifications(car[] cars)
 	{
-		Map<Character, String> map1 = new HashMap<Character, String>();
-		map1.put('M', "Mini");
-		map1.put('E', "Economy");
-		map1.put('C', "Compact");
-		map1.put('I', "Intermediate");
-		map1.put('S', "Standard");
-		map1.put('F', "Full Size");
-		map1.put('P', "Premium");
-		map1.put('L', "Luxury");
-		map1.put('X', "Special");
-		
-		Map<Character, String> map2 = new HashMap<Character, String>();
-		map2.put('B', "2 doors");
-		map2.put('C', "4 doors");
-		map2.put('D', "5 doors");
-		map2.put('W', "Estate");
-		map2.put('T', "Convertible");
-		map2.put('F', "SUV");
-		map2.put('P', "Pick up");
-		map2.put('V', "Passenger Van");
-		
-		Map<Character, String> map3 = new HashMap<Character, String>();
-		map3.put('M', "Manual");
-		map3.put('A', "Automatic");
-		
-		Map<Character, String> map4 = new HashMap<Character, String>();
-		map4.put('N', "Petrol/no AC");
-		map4.put('R', "Petrol/AC");
-		
+		//For each car, splits the sipp into letters and prints the corresponding specification
 		
 		for (int x = 0; x < cars.length; x++)
 		{
 			String sipp = cars[x].getSipp();
-			System.out.println((x+1) + ". " + cars[x].getName() + " - " + sipp + " - " + map1.get(sipp.charAt(0)) + " - " + map2.get(sipp.charAt(1)) + " - " + map3.get(sipp.charAt(2)) + " - " + map4.get(sipp.charAt(3)));
+			System.out.println((x+1) + ". " + cars[x].getName() + " - " + sipp + " - " + sipp1.get(sipp.charAt(0)) + " - " + sipp2.get(sipp.charAt(1)) + " - " + sipp3.get(sipp.charAt(2)) + " - " + sipp4.get(sipp.charAt(3)));
 		}
 	}
+	
 }
