@@ -8,6 +8,7 @@ public class Main {
 
 		car[] searchResult = JsonParser.parseJson("src/RentalcarsSorter/Sources/vehicles.json");
 		
+		Tasks.listCars(searchResult);
 		
 	}
 

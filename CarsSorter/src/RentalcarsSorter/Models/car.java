@@ -8,6 +8,15 @@ public class car {
 	private String supplier;
 	private float rating;
 	
+	public car(String _sipp, String _name, float _price, String _supplier, float _rating)
+	{
+		sipp = _sipp;
+		name = _name;
+		price = _price;
+		supplier = _supplier;
+		rating = _rating;
+	}
+	
 	public String toString()
 	{
 		return ("sipp : " + sipp + "\nname : " + name + "\nprice : " + price + "\nsupplier : " + supplier + "\nrating : " + rating + "\n");
@@ -21,7 +30,7 @@ public class car {
 		return name;
 	}
 	
-	public float getSPrice(){
+	public float getPrice(){
 		return price;
 	}
 	
